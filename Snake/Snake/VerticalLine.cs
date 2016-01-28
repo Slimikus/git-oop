@@ -8,21 +8,21 @@ namespace Snake
 {
     class VerticalLine
     {
-        List<Point> yList;
+        List<Point> pList;
 
         public VerticalLine(int x, int yUp, int yDown, char sym)
         {
-            yList = new List<Point>();
+            pList = new List<Point>();
             for(int y = yUp; y <= yDown; y++)
             {
                 Point p = new Point(x, y, sym);
-                yList.Add(p);
+                pList.Add(p);
             }
         }
 
         public void Drow()
         {
-            foreach(Point p in yList)
+            foreach(Point p in pList)
             {
                 p.Draw();
             }
