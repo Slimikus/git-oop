@@ -24,7 +24,6 @@ namespace Snake
             Point p1 = new Point(5, 5, '*');
             p1.Draw();
 
-            
             Console.ReadLine();
         }
 

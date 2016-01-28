@@ -9,7 +9,6 @@ namespace Snake
     class VerticalLine
     {
         List<Point> pList;
-
         public VerticalLine(int x, int yUp, int yDown, char sym)
         {
             pList = new List<Point>();
@@ -19,7 +18,6 @@ namespace Snake
                 pList.Add(p);
             }
         }
-
         public void Drow()
         {
             foreach(Point p in pList)
