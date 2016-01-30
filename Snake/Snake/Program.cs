@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Snake
@@ -10,26 +11,37 @@ namespace Snake
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(1, 1);
+            Console.SetBufferSize(80, 25);
+            Console.SetWindowSize(80, 25);
+            // Отрисовка рамочки
+            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            upLine.Draw();
+            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
+            downLine.Draw();
+            VerticalLine leftLine = new VerticalLine(0, 0, 24, '+');
+            leftLine.Draw();
+            VerticalLine rightLine = new VerticalLine(78, 0, 24, '+');
+            rightLine.Draw();
 
-            Point p1 = new Point(1, 3, '*');
-            p1.Draw();
+            //отрисовка точек
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
+            
+            while(true)
+            {
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
 
-            Point p2 = new Point(4, 5, '#');
-            p2.Draw();
 
-            HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
-            line.Drow();
-
-            VerticalLine liney = new VerticalLine(5, 8, 18, '+');
-            liney.Drow();
-
-            Console.ReadLine();
-        }
-
-        static void Draw(int x, int y, char sym)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
+           // Console.ReadLine();
         }
     }
 }
