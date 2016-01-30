@@ -16,18 +16,18 @@ namespace Snake
             Console.SetWindowSize(80, 25);
             // Отрисовка рамочки
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
-            upLine.Drow();
+            upLine.Draw();
             HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
-            downLine.Drow();
+            downLine.Draw();
             VerticalLine leftLine = new VerticalLine(0, 0, 24, '+');
-            leftLine.Drow();
+            leftLine.Draw();
             VerticalLine rightLine = new VerticalLine(78, 0, 24, '+');
-            rightLine.Drow();
+            rightLine.Draw();
 
             //отрисовка точек
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
-            snake.Drow();
+            snake.Draw();
             
             while(true)
             {
