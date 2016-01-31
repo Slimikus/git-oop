@@ -51,6 +51,29 @@ namespace Snake
                     snake.HandleKey(key.Key);
                 }
             }
+            WriteGameOver();
+            Console.ReadLine();
+
+        }
+
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("=========================", xOffset + 1, yOffset++);
+            WriteText("И Г Р А   О К О Н Ч Е Н А", xOffset + 1, yOffset++);
+            yOffset++;
+            WriteText("Автор: Андрей Маковецкий", xOffset + 2, yOffset++);
+            WriteText("Первая игра", xOffset + 9, yOffset++);
+            WriteText("=========================", xOffset + 1, yOffset++);
+        }
+
+        static void WriteText( String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
         }
     }
 }
