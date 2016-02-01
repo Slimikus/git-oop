@@ -28,7 +28,7 @@ namespace Snake
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Drow();
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
